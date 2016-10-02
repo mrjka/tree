@@ -18,22 +18,19 @@ def tree(currDir, printOffset):
     # Loop through the content
     i = 0
     for content in dirContentSorted:
-        # If it's a file and not the last one, just print it with the offset
-        if(os.path.isfile(os.path.join(currDir, content))):
-            if(i < len(dirContentSorted) - 1):
+        if(i < len(dirContentSorted) - 1):
                 print(printOffset + "├── " + str(content))
             else:
                 print(printOffset + "└── " + str(content))
+
+        # If it's a file add the total
+        if(os.path.isfile(os.path.join(currDir, content))):
             noOfFiles += 1
 
-        # If it's a folder, then print the name of the folder with offset, and then recurse
+        # If it's a folder, then increase the number and recurse
         elif(os.path.isdir(os.path.join(currDir, content)) and i < len(dirContentSorted) - 1):
-            if(i < len(dirContentSorted) - 1):
-                print(printOffset + "├── " + str(content))
-            else:
-                print(printOffset + "└── " + str(content))
             noOfFolders += 1
-            tree(os.path.join(currDir, content), printOffset + "│   ")
+            tree(os.path.join(currDir, content), printOffset + "│   ")
 
         i += 1
 
