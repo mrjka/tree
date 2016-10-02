@@ -17,12 +17,12 @@ def tree(currDir, printOffset):
 
     # Loop through the content
     i = 0
-    isLast = false
+    isLast = 0
     for content in dirContentSorted:
         if(i < len(dirContentSorted) - 1):
             print(printOffset + "├── " + str(content))
         else:
-            isLast = true
+            isLast = 1
             print(printOffset + "└── " + str(content))
 
         # If it's a file add the total
@@ -32,7 +32,7 @@ def tree(currDir, printOffset):
         # If it's a folder, then increase the number and recurse
         elif(os.path.isdir(os.path.join(currDir, content))):
             noOfFolders += 1
-            if(isLast):
+            if(isLast == 1):
                 tree(os.path.join(currDir, content), printOffset + "    ")
             else:
                 tree(os.path.join(currDir, content), printOffset + "│   ")
