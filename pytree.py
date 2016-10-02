@@ -19,9 +19,9 @@ def tree(currDir, printOffset):
     i = 0
     for content in dirContentSorted:
         if(i < len(dirContentSorted) - 1):
-                print(printOffset + "├── " + str(content))
-            else:
-                print(printOffset + "└── " + str(content))
+            print(printOffset + "├── " + str(content))
+        else:
+            print(printOffset + "└── " + str(content))
 
         # If it's a file add the total
         if(os.path.isfile(os.path.join(currDir, content))):
