@@ -24,7 +24,7 @@ def tree(currDir, printOffset):
             noOfFiles += 1
 
         # If it is the last file in the current directory
-        elif(os.path.isfile(os.path.join(currDir, content)) and i == len(dirContentSorted) - 1):
+        elif(os.path.isfile(os.path.join(currDir, content))):
             print(printOffset + "└── " + str(content))
             noOfFiles += 1
 
@@ -35,7 +35,7 @@ def tree(currDir, printOffset):
             tree(os.path.join(currDir, content), printOffset + "│   ")
 
         # If it is the last folder in the current directory
-        elif(os.path.isdir(os.path.join(currDir, content)) and i == len(dirContentSorted) - 1):
+        elif(os.path.isdir(os.path.join(currDir, content))):
             print(printOffset + "└── " + str(content))
             noOfFolders += 1
             tree(os.path.join(currDir, content), printOffset + "    ")
