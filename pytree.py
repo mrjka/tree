@@ -13,7 +13,7 @@ def tree(currDir, printOffset):
     global noOfFolders
 
     dirContent = [cont for cont in os.listdir(currDir) if not cont.startswith('.')]
-    dirContentSorted = sorted(dirContent, key=lambda s: s.lower())
+    dirContentSorted = sorted(dirContent, key=lambda x: x.strip('_').lower())
 
     # Loop through the content
     i = 0
@@ -42,10 +42,11 @@ def tree(currDir, printOffset):
 # Print the first line
 lenArg = len(sys.argv)
 if(lenArg == 1):
-    rootDir = "."
+    print(".")
+    rootDir = os.getcwd()
 else:
     rootDir = str(sys.argv[1])
-print(rootDir)
+    print(rootDir)
 tree(rootDir, "")
 print()
 print(str(noOfFolders) + " directories, " + str(noOfFiles) + " files")
