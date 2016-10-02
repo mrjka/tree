@@ -33,7 +33,7 @@ def tree(currDir, printOffset):
         elif(os.path.isdir(os.path.join(currDir, content))):
             noOfFolders += 1
             if(isLast):
-            	tree(os.path.join(currDir, content), printOffset + "    ")
+                tree(os.path.join(currDir, content), printOffset + "    ")
             else:
                 tree(os.path.join(currDir, content), printOffset + "│   ")
 
